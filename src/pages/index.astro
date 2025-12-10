@@ -1,11 +1,24 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Benefits from '../components/Benefits.astro';
+import CTASection from '../components/CTASection.astro';
+import FAQ from '../components/FAQ.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="BuzzRefer - Start Earning Discounts">
+	<Header />
+	<main class="flex-grow w-full overflow-x-hidden">
+		<Hero />
+		<HowItWorks />
+		<CTASection />
+		<Benefits />
+		<FAQ />
+		<ContactForm />
+	</main>
+	<Footer />
 </Layout>

@@ -1,0 +1,42 @@
+---
+const steps = [
+  {
+    number: "1",
+    title: "Sign up",
+    description: "Submit your basic details to create an account and start recommending for us."
+  },
+  {
+    number: "2",
+    title: "Customer Refer",
+    description: "Reach potential customers via socials, email, or word of mouth and share your link."
+  },
+  {
+    number: "3",
+    title: "Everyone Wins",
+    description: "Track your referrals and rewards via our simplified dashboard for you."
+  }
+];
+---
+<section class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24">
+  <div class="text-center mb-16">
+    <p class="text-xs uppercase tracking-wider text-gray-400 font-semibold mb-2">INSTRUCTIONS</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-teal-900">How You Earn</h2>
+    <p class="text-teal-600 font-medium mt-2">Learn The Awesome Referral System</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    {steps.map((step) => (
+      <div class="bg-white md:bg-transparent p-6 md:p-0 flex md:flex-col items-start md:items-center md:text-center gap-4 hover:bg-teal-50 md:hover:bg-transparent rounded-2xl transition-colors">
+        <div class="flex-shrink-0 w-12 h-12 bg-teal-400 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md mb-2">
+          {step.number}
+        </div>
+        <div>
+          <h3 class="font-bold text-teal-900 text-lg mb-2">{step.title}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">
+            {step.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

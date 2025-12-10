@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Outfit Variable', sans-serif;
+  @apply bg-white text-gray-900;
+}

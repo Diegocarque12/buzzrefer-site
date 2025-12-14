@@ -1,25 +1,35 @@
 ---
-import '../styles/global.css';
-import '@fontsource-variable/outfit';
+import "../styles/global.css";
+import "@fontsource-variable/outfit";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "The first Geographic Density Engine for Service Businesses. Stop driving across town. Start dominating neighborhoods with automated multi-tier referrals.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="BuzzRefer - Start Earning Discounts with Every Referral" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="keywords"
+			content="Route Density Optimization, Service Business Growth, Local Referral Software, Neighborhood Clusters, Lawn Care Marketing, Pool Service Software"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ClientRouter />
 	</head>
-	<body class="bg-gray-50 min-h-screen flex flex-col font-sans">
+	<body class="min-h-screen flex flex-col font-sans overflow-x-hidden">
 		<slot />
 	</body>
 </html>

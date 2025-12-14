@@ -1,25 +1,296 @@
 ---
----
-<header class="w-full py-4 px-6 md:px-12 fixed top-0 left-0 bg-white/80 backdrop-blur-md z-50 flex justify-between items-center border-b border-gray-100">
-  <div class="flex items-center gap-2">
-    <!-- Logo Placeholder -->
-    <div class="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center text-white font-bold">B</div>
-    <span class="text-xl font-bold tracking-tight text-gray-900">buzzrefer.</span>
-  </div>
 
-  <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500 bg-gray-100/50 px-6 py-2 rounded-full">
-    <a href="#" class="text-teal-900 bg-teal-50 px-3 py-1 rounded-md">Home</a>
-    <a href="#" class="hover:text-teal-600 transition-colors">How it work</a>
-    <a href="#" class="hover:text-teal-600 transition-colors">Contact</a>
-  </nav>
-  
-  <div class="flex items-center gap-4">
-    <a href="#" class="hidden md:block text-sm font-medium text-gray-600 hover:text-teal-600">
-        Login
-    </a>
-    <a href="#" class="px-5 py-2 rounded-full bg-teal-500 text-white font-medium hover:bg-teal-600 transition-colors text-sm shadow-md shadow-teal-200">
-        Get Started
-    </a>
-  </div>
+---
+
+<header
+    class="w-full py-4 md:py-6 px-4 md:px-12 fixed top-0 left-0 bg-white/90 backdrop-blur-sm z-50 flex justify-between items-center transition-all duration-300"
+>
+    <!-- Left: Hamburger + Logo -->
+    <div class="flex items-center gap-4">
+        <!-- Hamburger Menu (Mobile Only) -->
+        <button
+            id="mobile-menu-btn"
+            class="md:hidden text-gray-900 focus:outline-none"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <div class="flex items-center gap-2">
+            <img
+                src="/buzzrefer.svg"
+                class="h-8 md:h-10 w-auto"
+                alt="BuzzRefer Logo"
+            />
+            <span
+                class="font-montserrat text-2xl font-extrabold text-[#212936] tracking-tight flex items-baseline"
+            >
+                buzz<span class="font-normal text-[#0B0A0F]">refer.</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Center Nav Pill (Desktop Only) -->
+    <nav
+        class="hidden md:flex items-center bg-gray-100/80 p-1.5 rounded-lg font-medium text-sm text-gray-600"
+    >
+        <a
+            href="/"
+            class="relative px-5 py-1.5 rounded-md transition-colors hover:text-gray-900 group"
+        >
+            {
+                Astro.url.pathname === "/" && (
+                    <div
+                        transition:name="nav-pill"
+                        class="absolute inset-0 bg-teal-200/50 rounded-md border border-teal-200/50 -z-10"
+                    />
+                )
+            }
+            <span
+                class:list={[
+                    "relative z-10",
+                    Astro.url.pathname === "/" ? "text-teal-900" : "",
+                ]}>Home</span
+            >
+        </a>
+
+        <a
+            href="/how-it-works"
+            class="relative px-5 py-1.5 rounded-md transition-colors hover:text-gray-900 group"
+        >
+            {
+                Astro.url.pathname.startsWith("/how-it-works") && (
+                    <div
+                        transition:name="nav-pill"
+                        class="absolute inset-0 bg-teal-200/50 rounded-md border border-teal-200/50 -z-10"
+                    />
+                )
+            }
+            <span
+                class:list={[
+                    "relative z-10",
+                    Astro.url.pathname.startsWith("/how-it-works")
+                        ? "text-teal-900"
+                        : "",
+                ]}>How it works</span
+            >
+        </a>
+
+        <a
+            href="/contact"
+            class="relative px-5 py-1.5 rounded-md transition-colors hover:text-gray-900 group"
+        >
+            {
+                Astro.url.pathname.startsWith("/contact") && (
+                    <div
+                        transition:name="nav-pill"
+                        class="absolute inset-0 bg-teal-200/50 rounded-md border border-teal-200/50 -z-10"
+                    />
+                )
+            }
+            <span
+                class:list={[
+                    "relative z-10",
+                    Astro.url.pathname.startsWith("/contact")
+                        ? "text-teal-900"
+                        : "",
+                ]}>Contact</span
+            >
+        </a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="flex items-center gap-3 md:gap-4">
+        <!-- Mobile "Log In" Button (Outlined with Icon) -->
+        <a
+            href="#"
+            class="md:hidden flex items-center gap-2 px-4 py-2 rounded-xl border border-teal-500 text-teal-900 font-bold text-sm hover:bg-teal-50 transition-colors"
+        >
+            <span>Log In</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                ></path>
+            </svg>
+        </a>
+
+        <!-- Desktop Log In Button -->
+        <a
+            href="#"
+            class="hidden md:flex items-center gap-2 text-sm font-semibold text-teal-900 border border-teal-100 px-4 py-2 rounded-lg hover:bg-teal-50 transition-colors"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                ></path>
+            </svg>
+            Log In
+        </a>
+
+        <!-- Get Started Button (Desktop Only) -->
+        <a
+            href="#"
+            class="hidden md:flex px-4 md:px-5 py-2 rounded-lg bg-[#00CCAA] text-[#002222] font-bold hover:bg-teal-400 transition-colors text-sm items-center gap-2 shadow-lg shadow-teal-200/50"
+        >
+            <span>Get Started</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+        </a>
+    </div>
 </header>
-<div class="h-20"></div> <!-- Spacer for fixed header -->
+
+<!-- Mobile Menu Overlay -->
+<div
+    id="mobile-menu"
+    class="fixed inset-0 bg-[#F9FAFB] z-[60] transform translate-x-[-100%] transition-transform duration-300 md:hidden flex flex-col h-[100dvh]"
+>
+    <!-- Top Bar: Logo + Close Button -->
+    <div
+        class="flex items-center justify-between px-4 py-4 md:px-12 md:py-6 border-b border-gray-100/50"
+    >
+        <div class="flex items-center gap-2">
+            <img src="/buzzrefer.svg" class="h-8 w-auto" alt="BuzzRefer Logo" />
+            <span
+                class="font-montserrat text-2xl font-extrabold text-[#212936] tracking-tight flex items-baseline"
+            >
+                buzz<span class="font-normal text-[#0B0A0F]">refer.</span>
+            </span>
+        </div>
+        <button
+            id="close-menu-btn"
+            class="text-gray-900 focus:outline-none p-2 rounded-full hover:bg-gray-100 transition-colors"
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Links -->
+    <nav class="flex flex-col gap-6 px-6 mt-8">
+        <a
+            href="/"
+            class="text-[1.15rem] font-medium text-gray-600 hover:text-teal-900 transition-colors"
+            >Home</a
+        >
+        <a
+            href="/how-it-works"
+            class="text-[1.15rem] font-medium text-gray-600 hover:text-teal-900 transition-colors"
+            >How it Works</a
+        >
+        <a
+            href="/contact"
+            class="text-[1.15rem] font-medium text-gray-600 hover:text-teal-900 transition-colors"
+            >Contact</a
+        >
+    </nav>
+
+    <!-- Bottom: Log In Button -->
+    <div class="mt-auto px-6 pb-8">
+        <a
+            href="#"
+            class="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-teal-500 text-black font-bold text-lg hover:bg-teal-50 transition-colors bg-white shadow-sm"
+        >
+            Log In <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                ></path>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const closeBtn = document.getElementById("close-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+
+    function toggleMenu() {
+        if (!menu) return;
+
+        const isClosed = menu.classList.contains("translate-x-[-100%]");
+
+        if (isClosed) {
+            menu.classList.remove("translate-x-[-100%]");
+            menu.classList.add("translate-x-0");
+            document.body.style.overflow = "hidden"; // Lock Scroll
+        } else {
+            menu.classList.add("translate-x-[-100%]");
+            menu.classList.remove("translate-x-0");
+            document.body.style.overflow = ""; // Unlock Scroll
+        }
+    }
+
+    if (btn) btn.addEventListener("click", toggleMenu);
+    if (closeBtn) closeBtn.addEventListener("click", toggleMenu);
+
+    // Close menu on link click
+    menu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu.classList.add("translate-x-[-100%]");
+            menu.classList.remove("translate-x-0");
+            document.body.style.overflow = "";
+        });
+    });
+</script>
+<div class="h-20"></div>
+<!-- Spacer for fixed header -->

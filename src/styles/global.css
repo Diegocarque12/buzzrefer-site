@@ -1,6 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
+/* 
+  @theme inline:
+  This looks verbose, but it's required for Tailwind v4 to map our CSS variables 
+  to utility classes (e.g. bg-primary, text-muted). 
+  Without these, the ShadCN components like <Button variant="outline"> will break.
+*/
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  
+  /* Semantic Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom Palette Exposure */
+  --color-teal-main: var(--teal-main);
+  --color-teal-dark: var(--teal-dark);
+  --color-teal-darker: var(--teal-darker);
+
+  --color-grey-50: var(--grey-50);
+  --color-grey-100: var(--grey-100);
+  --color-grey-200: var(--grey-200);
+  --color-grey-300: var(--grey-300);
+  --color-grey-400: var(--grey-400);
+  --color-grey-500: var(--grey-500);
+  --color-grey-600: var(--grey-600);
+  --color-grey-700: var(--grey-700);
+  --color-grey-800: var(--grey-800);
+  --color-grey-900: var(--grey-900);
+
+  --color-green-50: var(--green-50);
+  --color-green-100: var(--green-100);
+  --color-green-200: var(--green-200);
+  --color-green-300: var(--green-300);
+  --color-green-400: var(--green-400);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* --- Brand Colors (Definitions) --- */
+
+  /* Teal */
+  --teal-main: #00B89F;
+  --teal-dark: #00413E;
+  --teal-darker: #098C7B;
+  
+  /* Greyscale */
+  --grey-50: #F9FAFB;
+  --grey-100: #F4F4F6;
+  --grey-200: #E5E6EB;
+  --grey-300: #D3D5DA;
+  --grey-400: #9EA3AE;
+  --grey-500: #6C727F;
+  --grey-600: #4D5461;
+  --grey-700: #394150;
+  --grey-800: #212936;
+  --grey-900: #161D21;
+
+  /* Green Shades */
+  --green-50: #F1FBF9;
+  --green-100: #E5F4F2;
+  --green-200: #D5F2EE;
+  --green-300: #BCE9E3;
+  --green-400: #80D1C7;
+
+  /* --- Semantic Theme Map (Usage) --- */
+  
+  --background: #FFFFFF;
+  --foreground: var(--grey-900);
+  
+  --card: #FFFFFF;
+  --card-foreground: var(--grey-900);
+  
+  --popover: #FFFFFF;
+  --popover-foreground: var(--grey-900);
+  
+  --primary: var(--teal-main);
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: var(--green-50);
+  --secondary-foreground: var(--teal-dark);
+  
+  --muted: var(--grey-100);
+  --muted-foreground: var(--grey-500);
+  
+  --accent: var(--green-100);
+  --accent-foreground: var(--teal-dark);
+  
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  --border: var(--grey-200);
+  --input: var(--grey-200);
+  --ring: var(--teal-main);
+  
+  /* Charts */
+  --chart-1: var(--teal-main);
+  --chart-2: var(--teal-darker);
+  --chart-3: var(--green-400);
+  --chart-4: var(--grey-600);
+  --chart-5: var(--grey-400);
+  
+  /* Sidebar (Optional usage) */
+  --sidebar: var(--grey-50);
+  --sidebar-foreground: var(--grey-900);
+  --sidebar-primary: var(--teal-main);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--green-100);
+  --sidebar-accent-foreground: var(--teal-dark);
+  --sidebar-border: var(--grey-200);
+  --sidebar-ring: var(--teal-main);
+}
+
+/* Typography Utilities */
+@layer utilities {
+  .h1 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: normal;
+  }
+  .h2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 40px;
+    line-height: normal;
+  }
+  .h3 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: normal;
+  }
+  .h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: normal;
+  }
+  .body-large {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: normal;
+  }
+  .body-medium {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
+  .body-small {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: normal;
+  }
+  .body-xsmall {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: normal;
+  }
+}
+
 body {
-  font-family: 'Outfit Variable', sans-serif;
-  @apply bg-white text-gray-900;
+  font-family: var(--font-sans);
+}
+
+.line-height-150 {
+  line-height: 150%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

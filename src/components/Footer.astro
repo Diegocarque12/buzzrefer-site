@@ -1,109 +1,126 @@
 ---
-
+// src/components/Footer.astro
 ---
 
-<footer class="bg-gray-50 pt-12 md:pt-0">
-  <!-- Top padding for spacing on gray background if needed, or margin-top on footer. Using margin-top on footer to pull it up if needed, or just standard flow. -->
+<footer class="w-full bg-white pb-12 px-4 md:px-8 flex justify-center">
   <div
-    class="bg-[#023B3B] text-white rounded-t-3xl md:rounded-3xl mx-0 md:mx-6 px-8 py-12 md:px-12 md:py-16 relative overflow-hidden"
+    class="w-full max-w-360 bg-[#0d3b36] rounded-3xl overflow-hidden text-white flex flex-col justify-between min-h-[400px]"
   >
-    <!-- Up Arrow (Desktop: Bottom Right, Mobile: Top Right) -->
-    <div class="absolute top-8 right-8 md:hidden">
-      <a
-        href="#"
-        class="text-white hover:text-teal-200 transition-colors block p-2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <div
+      class="p-15 pt-5 lg:pt-12 lg:px-30 flex flex-col justify-between grow gap-4"
+    >
+      <!-- Mobile Arrow -->
+      <div class="flex justify-end md:hidden lg:col-span-3 lg:justify-self-end">
+        <button
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          class="text-white/80 hover:text-[#2DD4BF] transition-colors"
+          aria-label="Back to top"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-        </svg>
-      </a>
-    </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+          </svg>
+        </button>
+      </div>
 
-    <!-- Main Content -->
-    <div class="max-w-7xl mx-auto flex flex-col justify-between h-full">
-      <!-- Top Row: Logo (Left) & Contact/Follow (Right) -->
-      <div
-        class="flex flex-col md:flex-row justify-between items-start gap-12 w-full"
-      >
-        <!-- Logo -->
-        <div class="w-full md:w-auto flex justify-center md:justify-start">
-          <div class="flex items-center gap-2">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-5">
+        <!-- Buzzrefer -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center justify-center md:justify-start gap-3">
             <img
               src="/buzzrefer.svg"
-              class="h-10 w-auto"
+              class="h-12 md:h-10 w-auto"
               alt="BuzzRefer Logo"
             />
             <span
-              class="font-montserrat text-3xl font-extrabold text-white tracking-tight flex items-baseline"
+              class="font-montserrat text-3xl font-normal tracking-tight text-white"
             >
-              buzz<span class="font-normal text-white">refer.</span>
+              <strong>buzz</strong>refer.
             </span>
           </div>
         </div>
 
-        <!-- Contact & Follow Columns -->
+        <!-- Mobile Nav -->
         <div
-          class="flex flex-col md:flex-row gap-12 md:gap-32 w-full md:w-auto items-center md:items-start text-center md:text-left"
+          class="flex md:hidden lg:col-span-6 flex-wrap justify-center gap-8 text-sm text-white/80"
         >
-          <!-- Contact -->
-          <div class="space-y-4">
-            <h4 class="text-sm text-teal-100/70 font-medium">Contact us</h4>
-            <div class="space-y-2 text-lg font-light text-white">
-              <p>+1 891 989–11–91</p>
-              <p>hello@logoipsum.com</p>
-            </div>
-          </div>
-
-          <!-- Follow -->
-          <div class="space-y-4">
-            <h4 class="text-sm text-teal-100/70 font-medium">Follow us</h4>
-            <div class="space-y-2 text-lg font-light text-white">
-              <p>Whatsapp</p>
-              <p>Instagram</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Middle Row: Nav (Left) - Address (Center) - Arrow (Right) -->
-      <div
-        class="flex flex-col md:flex-row justify-between items-center mt-12 md:mt-32 w-full relative"
-      >
-        <!-- Nav Links -->
-        <div
-          class="flex flex-wrap justify-center md:justify-start gap-6 md:gap-8 text-lg font-medium order-2 md:order-1"
-        >
-          <a href="/" class="hover:text-teal-200 transition-colors">Home</a>
-          <a href="/how-it-works" class="hover:text-teal-200 transition-colors"
+          <a href="/" class="hover:text-[#2DD4BF] transition-colors">Home</a>
+          <a href="/how-it-works" class="hover:text-[#2DD4BF] transition-colors"
             >How It Works</a
           >
-          <a href="/contact" class="hover:text-teal-200 transition-colors"
+          <a href="/contact" class="hover:text-[#2DD4BF] transition-colors"
             >Contact</a
           >
         </div>
 
-        <!-- Address -->
+        <div class="lg:col-span-3">
+          <h4
+            class="text-xs md:text-white/60 mb-2 md:mb-6 font-bold md:font-medium md:tracking-widest md:uppercase"
+          >
+            Contact us
+          </h4>
+          <div
+            class="flex flex-col gap-3 text-sm md:text-base font-normal text-white/80"
+          >
+            <p>+1 891 989-11-91</p>
+            <p>hello@logoipsum.com</p>
+          </div>
+        </div>
+
         <div
-          class="text-lg font-light md:absolute md:left-1/2 md:-translate-x-1/2 order-1 md:order-2 mb-8 md:mb-0"
+          class="lg:col-span-3 lg:justify-self-end text-left w-full lg:w-auto"
+        >
+          <h4
+            class="text-xs md:text-white/60 mb-2 md:mb-6 font-bold md:font-medium md:tracking-widest md:uppercase"
+          >
+            Follow us
+          </h4>
+          <div
+            class="flex flex-col gap-3 text-sm md:text-base font-normal text-white/80"
+          >
+            <a href="#" class="hover:text-[#2DD4BF] transition-colors"
+              >Whatsapp</a
+            >
+            <a href="#" class="hover:text-[#2DD4BF] transition-colors"
+              >Instagram</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-y-8 items-end mt-auto">
+        <div
+          class="hidden md:flex lg:col-span-6 flex-wrap gap-8 text-sm font-medium text-white/80"
+        >
+          <a href="/" class="hover:text-[#2DD4BF] transition-colors">Home</a>
+          <a href="/how-it-works" class="hover:text-[#2DD4BF] transition-colors"
+            >How It Works</a
+          >
+          <a href="/contact" class="hover:text-[#2DD4BF] transition-colors"
+            >Contact</a
+          >
+        </div>
+
+        <div
+          class="lg:col-span-3 text-white font-bold md:text-white/60 text-sm md:font-normal"
         >
           Phoenix, Arizona, USA.
         </div>
-
-        <!-- Desktop Arrow -->
-        <div class="hidden md:block order-3">
-          <a
-            href="#"
-            class="text-white hover:text-teal-200 transition-colors block p-2"
+        <!-- Arrow Button -->
+        <div class="hidden md:block lg:col-span-3 lg:justify-self-end">
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="text-white/80 hover:text-[#2DD4BF] transition-colors cursor-pointer"
+            aria-label="Back to top"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -115,34 +132,30 @@
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                stroke-width="2"
+                stroke-width="1.5"
                 d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
             </svg>
-          </a>
+          </button>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Bottom Bar (Outside the rounded container? Or inside? Image shows inside but full width. 
-       Actually image shows rounded corners at TOP only maybe? Or it's a card. 
-       Let's put it inside but full width at bottom) 
-  -->
-  <div
-    class="bg-[#00D1B2] text-[#002222] py-4 text-xs md:text-sm font-bold mt-0"
-  >
+    <!-- Copy -->
     <div
-      class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-2 text-center md:text-left"
+      class="bg-[#2DD4BF] pt-2 pb-4 md:py-5 px-6 lg:px-24 grid grid-cols-7 md:grid-cols-3 gap-x-4 gap-y-2 md:gap-4 items-center text-[#00382e] text-sm font-semibold"
     >
-      <div class="md:text-left order-2 md:order-1">
-        <p>© 2025 — Copyright</p>
+      <p
+        class="text-center font-extrabold col-span-7 md:col-span-1 md:text-left"
+      >
+        © 2025 — Copyright
+      </p>
+
+      <div class="flex justify-end md:justify-center col-span-3 md:col-span-1">
+        <a href="#" class="hover:underline">Privacy</a>
       </div>
-      <div class="md:text-center order-1 md:order-2">
-        <p>Privacy</p>
-      </div>
-      <div class="md:text-right order-3">
-        <p>All rights reserved</p>
-      </div>
+
+      <p class="flex justify-start md:justify-end col-span-4 md:col-span-1">
+        All rights reserved
+      </p>
     </div>
   </div>
 </footer>

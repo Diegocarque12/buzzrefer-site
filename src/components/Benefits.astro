@@ -1,66 +1,91 @@
 ---
+import filledTag from "@/assets/icons/filled-tag.svg";
+import healthIconCoin from "@/assets/icons/healthicons-coins-outline.svg";
+import progressCheck from "@/assets/icons/mdi-progress-check.svg";
+import savingsIcon from "@/assets/icons/savings.svg";
+
+import illustration from "@/assets/small-town-illustration.svg";
+
 import Image from "astro/components/Image.astro";
+
 const benefits = [
   {
     title: "Lower Prices in Your Area",
     description:
       "Our members provide special prices and deals to our referral.",
-    icon: "🏷️",
+    icon: filledTag,
+    bgColor: "bg-[#00CCAA]",
   },
   {
     title: "Earn Monthly Rewards",
     description: "You get rewarded for every new person you refer to our site.",
-    icon: "💰",
+    icon: healthIconCoin,
+    bgColor: "bg-[#2B8F78]",
   },
   {
     title: "Faster & More Reliable Service",
     description: "The best way to get service you love from your local vendor.",
-    icon: "⚡",
+    icon: progressCheck,
+    bgColor: "bg-[#00CCAA]",
   },
   {
     title: "Track Your Savings",
     description: "See exactly how much you have saved and earned.",
-    icon: "🐷",
+    icon: savingsIcon,
+    bgColor: "bg-[#2B8F78]",
   },
 ];
-
-const illustration = import("@/assets/small-town-illustration.svg");
 ---
 
-<section class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24 bg-green-200">
-  <div class="flex flex-col md:flex-row items-center gap-16">
-    <!-- Left: Illustration -->
-    <div class="flex-1 w-full max-w-md">
-      <div
-        class="aspect-square bg-transparent flex items-center justify-center relative"
-      >
-        <Image src={illustration} alt="Illustration" />
+<section
+  class="w-screen md:w-full md:bg-[#EAF8F4] py-8 md:py-24 mb-12 md:mb-32"
+>
+  <div
+    class="max-w-7xl mx-auto md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start"
+  >
+    <div class="flex flex-col gap-8">
+      <div class="w-full flex justify-center lg:justify-start">
+        <Image
+          src={illustration}
+          alt="Town Illustration"
+          class="w-lg md:max-w-xs h-auto object-contain"
+        />
       </div>
 
-      <div class="mt-8">
-        <h2 class="h2 md:text-5xl font-bold text-teal-900 leading-tight mb-4">
+      <div class="hidden md:block max-w-lg">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-[#0d3b36] mb-2 leading-tight"
+        >
           Benefits <br /> You'll Love
         </h2>
-        <p class="text-gray-900 max-w-sm text-lg line-height-150">
-          Here’s how <strong>BuzzRefer</strong> makes your service experience easier,
-          more affordable, <strong>and rewarding from day one</strong>.
+        <p class="text-gray-600 text-lg leading-relaxed">
+          Here's how <strong class="text-gray-900">BuzzRefer</strong> makes your service
+          experience easier, more affordable, <strong class="text-gray-900"
+            >and rewarding from day one.</strong
+          >
         </p>
       </div>
     </div>
 
-    <!-- Right: Benefits List -->
-    <div class="flex-1 space-y-8 w-full max-w-lg">
+    <div class="hidden md:block flex-col">
       {
         benefits.map((benefit) => (
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg shadow-teal-100">
-              {benefit.icon}
+          <div class="flex gap-6 py-8 border-b border-[#0d3b36]/10 first:pt-0 last:border-0 last:pb-0">
+            <div
+              class={`shrink-0 w-20 h-20 ${benefit.bgColor} rounded-2xl flex items-center justify-center shadow-sm `}
+            >
+              <Image
+                src={benefit.icon}
+                alt={benefit.title}
+                class="w-13 h-13 object-contain brightness-0 invert"
+              />
             </div>
-            <div>
-              <h3 class="font-bold text-teal-900 text-lg mb-1">
+
+            <div class="flex flex-col justify-center">
+              <h3 class="text-2xl font-bold text-[#0d3b36] mb-2">
                 {benefit.title}
               </h3>
-              <p class="text-gray-500 text-sm leading-relaxed">
+              <p class="text-gray-600 text-base leading-relaxed">
                 {benefit.description}
               </p>
             </div>

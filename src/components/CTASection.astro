@@ -2,47 +2,67 @@
 import ArrowRightIcon from "@/components/icons/ArrowRight.astro";
 ---
 
-<section class="max-w-5xl mx-auto px-6 md:px-12 py-12">
+<section class="w-full px-6 md:px-12 py-12 flex justify-center md:mb-32">
   <div
-    class="bg-[#BCE9E3CC] border border-teal-main rounded-3xl p-8 md:p-12 text-left md:text-left shadow-sm"
+    class="bg-[#00CCAA] md:bg-[#D1F0EA] border border-[#2DD4BF] rounded-3xl p-4 md:p-12 pb-12 md:pb-12 w-full max-w-4xl relative overflow-hidden"
   >
-    <div class="max-w-3xl">
-      <h2 class="text-2xl md:text-4xl font-bold text-teal-900 mb-4">
-        A Smarter Way to <br />Access Local Services
+    <div class="flex flex-col items-start w-full">
+      <h2
+        class="hidden md:block text-3xl md:text-4xl font-bold text-[#0d3b36] mb-4 leading-tight"
+      >
+        A Smarter Way to Access Local Services
       </h2>
-      <p class="text-teal-700 mb-4 max-w-2xl font-normal text-sm md:text-base">
-        Connect you with trusted service providers in high-density areas - and
-        keep those dollars local to you.
+
+      <h2
+        class="block md:hidden font-bold text-[#0d3b36] text-5xl m-2 mt-12 mb-2"
+      >
+        Get Started
+      </h2>
+
+      <p
+        class="hidden md:block text-[#004d40] mb-8 text-base md:text-lg leading-relaxed w-full"
+      >
+        Connects you with trusted providers who save more in high-density
+        areas—and share those savings with you.
       </p>
 
-      <div class="flex flex-col gap-2 mb-8 items-start">
-        <div
-          class="px-4 py-0.5 rounded-full border border-teal-500 text-teal-800 bg-white shadow-sm text-sm font-medium"
-        >
-          Lower service rates faster
-        </div>
-        <div
-          class="px-4 py-0.5 rounded-full border border-teal-500 text-teal-800 bg-white shadow-sm text-sm font-medium"
-        >
-          More reliable scheduling
-        </div>
-        <div
-          class="px-4 py-0.5 rounded-full border border-teal-500 text-teal-800 bg-white shadow-sm text-sm font-medium"
-        >
-          Rewards for every person you refer
+      <p class="text-[#0d3b36] m-4 block md:hidden">
+        Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
+        phasellus mollis sit aliquam sit nullam neque ultrices.
+      </p>
+
+      <div class="hidden md:block flex-col gap-3 mb-8 w-full items-start">
+        <div class="flex flex-wrap gap-3">
+          <div
+            class="bg-white border border-[#2DD4BF] text-[#004d40] px-5 py-1 rounded-full text-sm font-medium shadow-sm w-fit whitespace-nowrap"
+          >
+            Lower service rates faster
+          </div>
+          <div
+            class="bg-white border border-[#2DD4BF] text-[#004d40] px-5 py-1 rounded-full text-sm font-medium shadow-sm w-fit whitespace-nowrap"
+          >
+            More reliable scheduling
+          </div>
+          <div
+            class="bg-white border border-[#2DD4BF] text-[#004d40] px-5 py-1 rounded-full text-sm font-medium shadow-sm w-fit whitespace-nowrap"
+          >
+            Rewards for every person you refer
+          </div>
         </div>
       </div>
 
-      <div class="flex flex-col md:flex-row gap-4">
+      <div
+        class="flex flex-row gap-4 w-full items-center justify-center md:justify-none"
+      >
         <a
           href="#"
-          class="bg-white font-bold hover:bg-teal-dark border border-teal-main justify-center text-teal-dark hover:text-teal-main px-8 py-3 rounded-md transition-colors inline-flex items-center gap-2"
+          class="bg-[#00CCAA] md:bg-white text-[#0d3b36] font-bold py-3 px-4 rounded-xl md:border-[#2DD4BF] text-center justify-center inline-flex"
         >
-          Learn more
+          Learn More
         </a>
         <a
           href="#"
-          class="bg-teal-main font-bold hover:bg-teal-dark justify-center text-teal-dark hover:text-teal-main px-8 py-3 rounded-md transition-colors inline-flex items-center gap-2"
+          class="bg-white md:bg-[#00CCAA] text-[#00382e] md:font-bold py-3 px-4 rounded-xl inline-flex items-center justify-center gap-2"
         >
           Sign Up
           <ArrowRightIcon class="w-4 h-4" />

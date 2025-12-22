@@ -25,7 +25,7 @@ const faqs = [
 
 <section class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-24 bg-white">
 
-  <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+  <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
     
     <div class="lg:col-span-5">
       <span class="bg-[#00CCAA] text-[#00382e] text-xs font-extrabold px-3 py-1 rounded-full md:tracking-widest inline-block mb-6">
@@ -46,7 +46,7 @@ const faqs = [
 
     <div class="lg:col-span-7 flex flex-col gap-3">
       {faqs.map((faq) => (
-        <details class="group bg-[#D1F0EA] border border-[#2DD4BF] rounded-xl overflow-hidden transition-all duration-300 open:shadow-md cursor-pointer">
+        <details class="faq-item group bg-[#D1F0EA] border border-[#2DD4BF] rounded-xl overflow-hidden transition-all duration-300 open:shadow-md cursor-pointer">
           <summary class="flex justify-between items-center p-4 list-none font-semibold text-[#0d3b36] text-base select-none">
             {faq.question}
             <!-- Icono Flecha -->
@@ -57,8 +57,10 @@ const faqs = [
             </span>
           </summary>
           
-          <div class="px-4 pb-4 text-[#00413E] text-base leading-relaxed font-medium ">
-            {faq.answer}
+          <div class="faq-content">
+            <div class="px-4 pb-4 text-[#00413E] text-base leading-relaxed font-medium">
+              {faq.answer}
+            </div>
           </div>
         </details>
       ))}
@@ -66,3 +68,19 @@ const faqs = [
 
   </div>
 </section>
+
+<style>
+  .faq-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 350ms ease-in-out;
+  }
+
+  .faq-content > div {
+    overflow: hidden;
+  }
+
+  .faq-item[open] .faq-content {
+    grid-template-rows: 1fr;
+  }
+</style>

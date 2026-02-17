@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/app/:match*",
+      "destination": "https://buzzrefer.vercel.app/app/:match*"
+    }
+  ]
+}
